@@ -1,30 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+// pages
+import start from './src/screens/start';
+import home from './src/screens/home';
+
+const Stack = createStackNavigator() ;
 
 export default function App() {
-    const [ isPressed, setIsPressed ] = useState(false);
-    return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app! </Text>
-            <Text>Hey je viens de changer ma page App.js !!</Text>
-            {isPressed && <Text>Bouton enclenché !</Text>}
-            {!isPressed && <Button onPress={() => setIsPressed(true)} title={"Appuyez !"} />}
-            {isPressed && <TouchableOpacity onPress={() => setIsPressed(false)}><Text style={styles.button}>Réappuyez !!</Text></TouchableOpacity>}
-            <StatusBar style="auto" />
-        </View>
-    );
+  return (
+    <NavigationContainer>
+        <Stack.Navigator
+				initialRouteName={'Start'}
+				screenOptions={{
+					headerShown: false
+				}}
+			>
+				<Stack.Screen name={'start'} component={start} />
+				<Stack.Screen name={'home'} component={home} />
+        </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    button: {
-        color: "#65abf6",
-        fontSize: 20
-    }
-});
