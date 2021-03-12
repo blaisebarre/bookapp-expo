@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import styles from './styles';
 
-export default function home({route, navigation}) {
+export default function index({route, navigation}) {
     const { button } = route.params ;
     return (
         <View style={styles.container}>
@@ -15,16 +16,3 @@ export default function home({route, navigation}) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    button: {
-        color: "#65abf6",
-        fontSize: 20
-    }
-});
