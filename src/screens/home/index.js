@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import Header from "../../composants/header";
+import Header from "../../composants/Header";
+import MyButton from "../../composants/MyButton";
 
 export default function index({route, navigation}) {
     const { button } = route.params ;
@@ -10,7 +11,7 @@ export default function index({route, navigation}) {
         <View style={styles.container}>
             <Header />
             <Text>Vous avez cliqué sur {button}</Text>
-            <Button
+            <MyButton
                 title="Retour au début"
                 onPress={() => navigation.navigate('start')}
               />
