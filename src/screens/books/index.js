@@ -8,9 +8,12 @@ import getBooks from "../../../models/books";
 export default function books({route, navigation}) {
     const [ books, setBooks] = useState([]);
 
-    useEffect(async () => {
-        let books = await getBooks() ;
-        setBooks(books);
+    useEffect(() => {
+        async function fetchData()  {
+            let books = await getBooks() ;
+            setBooks(books);
+        }
+        fetchData() ;
     }, []);
 
     return (
