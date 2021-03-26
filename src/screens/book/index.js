@@ -8,21 +8,19 @@ import { getData, storeData } from '../../../utils/StoreManager';
 
 export default function book({route, navigation}) {
     const { item } = route.params ;
-    const [ favoris, setFavoris] = useState([]);
+    const [ favoris, setFavoris] = useState(false);
 
     useEffect(() => {
         async function getFavoris()  {
-            let favoris = await getData('favoris_book_'+item.id) ;
+            let favoris = await getData('@favoris_book_'+item.id) ;
             setFavoris(favoris);
         }
         getFavoris() ;
     }, []);
 
     const clicFavoris = async (favoris) => {
-        alert('ok');
-        const key = 'favoris_book_' + item.id ;
-        await storeData(key, favoris) ;
-        //setFavoris(favoris);
+        await storeData('@favoris_book_' + item.id, favoris) ;
+        setFavoris(favoris);
     }
 
     return (
