@@ -84,7 +84,7 @@ Chaque composant a (ou peut avoir) ses propres styles, ses propres méthodes, se
 Ici, on fait passer des attributs au composant, qu'il récupère via les props. Aussi au lieu de faire 
 
 <pre>
-    <Button
+    < Button
         title="Retour au début"
         onPress={() => navigation.navigate('start')}
       />
